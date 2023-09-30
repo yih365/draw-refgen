@@ -10,7 +10,7 @@
 
 ### Description
 
-[Description of your app]
+A drawing app that supports ai generated variations (using openAI API) of your drawing for inspiration.
 
 ### App Evaluation
 
@@ -28,53 +28,28 @@
 
 **Required Features**
 
-1. [fill in your required user features here]
-2. ...
-3. ...
+1. A view that allows for drawing interactions
+2. Get image variations through API call
+3. Display image variations in Image View
 
 **Optional Features**
 
-1. [fill in your optional user features here]
-2. ...
-3. ...
+1. Allow user to click through multiple image variations
 
 ### 2. Screen Archetypes
 
-- [list first screen here]
-  - [list associated required story here]
-  - ...
-- [list second screen here]
-  - [list associated required story here]
-  - ...
+- Main screen
+  - A drawing view
+  - get api image variations
+  - display image variations
 
 ### 3. Navigation
 
-**Tab Navigation** (Tab to Screen)
-
-* [fill out your first tab]
-* [fill out your second tab]
-* [fill out your third tab]
-
-**Flow Navigation** (Screen to Screen)
-
-- [list first screen here]
-  - [list screen navigation here]
-  - ...
-- [list second screen here]
-  - [list screen navigation here]
-  - ...
+n/a
 
 ## Wireframes
 
 [Add picture of your hand sketched wireframes in this section] <img src="YOUR_WIREFRAME_IMAGE_URL" width=600>
-
-<br>
-
-<br>
-
-### [BONUS] Digital Wireframes & Mockups
-
-### [BONUS] Interactive Prototype
 
 <br>
 
@@ -104,13 +79,11 @@ this section]
 
 ## Completed user stories
 
-- List the completed user stories from this unit
-- List any pending user stories / any user stories you decided to cut
-from the original requirements
+- A view that allows for drawing interactions
+- Get image variations through API call
+- Display image variations in Image View
+- Allow user to click through multiple image variations
+
 
 [Add gif of your current application that shows build progress]
 <img src="YOUR_WIREFRAME_IMAGE_URL" width=600>
-
-## App Demo Video
-
-- Embed the YouTube/Vimeo link of your Completed Demo Day prep video
