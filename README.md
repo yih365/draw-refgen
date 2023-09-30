@@ -87,7 +87,7 @@ this section]
 <img src="YOUR_WIREFRAME_IMAGE_URL" width=600>
 
 ## Issue cards
-<img src="issues.png">
+![Issues on project board](issues.png)
 
 ## Issues worked on this sprint
 
