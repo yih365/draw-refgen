@@ -66,7 +66,7 @@ n/a
 
 - Set up drawing in app
 - Connect API
-![Sprint 1 progress](drawref_demo1.gif)
+- ![Sprint 1 progress](drawref_demo1.gif)
 
 <br>
 
