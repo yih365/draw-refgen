@@ -1,5 +1,7 @@
 package com.example.myapplication
 
+import android.content.pm.ApplicationInfo
+import android.content.pm.PackageManager
 import android.graphics.Bitmap.CompressFormat
 import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
@@ -9,6 +11,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
@@ -40,9 +43,21 @@ class MainActivity : AppCompatActivity() {
         )
         val border = GradientDrawable()
         border.setColor(-0x1) //white background
-        border.setStroke(1, -0x1000000) //black border with full opacity
+        border.setStroke(3, -0x1000000) //black border with full opacity
         myDrawView.background = border
         parent.addView(myDrawView)
+
+        // Add Text for drawing view
+        val myDrawText = TextView(this)
+        myDrawText.text = "My draw view"
+        myDrawText.id = View.generateViewId()
+        parent.addView(myDrawText)
+
+        // Add Text for image ref view
+        val imageRefText = TextView(this)
+        imageRefText.text = "Reference view"
+        imageRefText.id = View.generateViewId()
+        parent.addView(imageRefText)
 
         // Add view for image ref
         val imageRefView = ImageView(this)
@@ -52,7 +67,7 @@ class MainActivity : AppCompatActivity() {
         // Add button
         val button = Button(this)
         button.layoutParams = ConstraintLayout.LayoutParams(ConstraintLayout.LayoutParams.WRAP_CONTENT, ConstraintLayout.LayoutParams.WRAP_CONTENT)
-        button.text = "Submit"
+        button.text = "Get references"
         button.id = View.generateViewId()
         button.setOnClickListener {
             // Base64 encode image
@@ -73,9 +88,7 @@ class MainActivity : AppCompatActivity() {
             val client = AsyncHttpClient()
             val params = RequestParams()
             val requestHeaders = RequestHeaders()
-            // TODO: hide this
-            val API_KEY = "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"
-            requestHeaders["Authorization"] = "Bearer $API_KEY"
+            requestHeaders["Authorization"] = "Bearer ${BuildConfig.API_KEY}"
             requestHeaders["Content-Type"] = "multipart/form-data"
 
             client.post(URL, requestHeaders, params, body, object: JsonHttpResponseHandler() {
@@ -92,10 +105,7 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 override fun onSuccess(statusCode: Int, headers: Headers?, json: JSON?) {
-                    Log.d(TAG, json.toString())
-
                     val url = json?.jsonObject?.getJSONArray("data")?.getJSONObject(0)?.getString("url")
-                    Log.d(TAG, "url is $url")
 
                     var i = 0
                     imageRefView.setOnClickListener{
@@ -110,14 +120,6 @@ class MainActivity : AppCompatActivity() {
                     Glide.with(this@MainActivity).load(url).fitCenter().override(512).into(imageRefView)
                 }
             })
-//            var fos: FileOutputStream? = null
-//            try {
-////                fos = FileOutputStream(getFileName())
-//                fos = openFileOutput(getFileName(), Context.MODE_PRIVATE)
-//            } catch (e: FileNotFoundException) {
-//                e.printStackTrace()
-//            }
-//            myDrawView.drawingCache.compress(CompressFormat.PNG, 95, fos)
         }
         parent.addView(button)
 
@@ -125,27 +127,76 @@ class MainActivity : AppCompatActivity() {
         val constraintSet = ConstraintSet()
         constraintSet.clone(parent)
         constraintSet.connect(
-            myDrawView.id,
-            ConstraintSet.BOTTOM,
-            parent.id,
-            ConstraintSet.BOTTOM,
-            0
+            imageRefText.id, ConstraintSet.TOP,
+            parent.id, ConstraintSet.TOP
+        )
+        constraintSet.connect(
+            imageRefView.id, ConstraintSet.TOP,
+            imageRefText.id, ConstraintSet.BOTTOM
+        )
+        constraintSet.connect(
+            button.id, ConstraintSet.TOP,
+            imageRefView.id, ConstraintSet.BOTTOM
+        )
+        constraintSet.connect(
+            button.id, ConstraintSet.BOTTOM,
+            myDrawView.id, ConstraintSet.TOP
         )
         constraintSet.connect(
             myDrawView.id, ConstraintSet.TOP,
             button.id, ConstraintSet.BOTTOM, 0
         )
         constraintSet.connect(
+            myDrawText.id, ConstraintSet.BOTTOM,
+            myDrawView.id, ConstraintSet.TOP, 0
+        )
+        constraintSet.connect(
+            myDrawView.id,
+            ConstraintSet.BOTTOM,
+            parent.id,
+            ConstraintSet.BOTTOM,
+            0
+        )
+
+        constraintSet.connect(
+            imageRefText.id, ConstraintSet.LEFT,
+            parent.id, ConstraintSet.LEFT, 0
+        )
+        constraintSet.connect(
+            imageRefText.id, ConstraintSet.RIGHT,
+            parent.id, ConstraintSet.RIGHT, 0
+        )
+        constraintSet.connect(
+            myDrawText.id, ConstraintSet.LEFT,
+            parent.id, ConstraintSet.LEFT, 0
+        )
+        constraintSet.connect(
+            myDrawText.id, ConstraintSet.RIGHT,
+            parent.id, ConstraintSet.RIGHT, 0
+        )
+        constraintSet.connect(
+            button.id, ConstraintSet.LEFT,
+            parent.id, ConstraintSet.LEFT, 0
+        )
+        constraintSet.connect(
+            button.id, ConstraintSet.RIGHT,
+            parent.id, ConstraintSet.RIGHT, 0
+        )
+        constraintSet.connect(
+            myDrawView.id, ConstraintSet.LEFT,
+            parent.id, ConstraintSet.LEFT, 0
+        )
+        constraintSet.connect(
+            myDrawView.id, ConstraintSet.RIGHT,
+            parent.id, ConstraintSet.RIGHT, 0
+        )
+        constraintSet.connect(
             imageRefView.id, ConstraintSet.LEFT,
-            button.id, ConstraintSet.RIGHT, 10
+            parent.id, ConstraintSet.LEFT, 0
         )
         constraintSet.connect(
             imageRefView.id, ConstraintSet.RIGHT,
-            parent.id, ConstraintSet.RIGHT, 10
-        )
-        constraintSet.connect(
-            imageRefView.id, ConstraintSet.TOP,
-            parent.id, ConstraintSet.TOP, 10
+            parent.id, ConstraintSet.RIGHT, 0
         )
         constraintSet.applyTo(parent)
     }
