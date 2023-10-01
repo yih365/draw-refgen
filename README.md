@@ -83,6 +83,4 @@ n/a
 - Display image variations in Image View
 - Allow user to click through multiple image variations
 
-
-[Add gif of your current application that shows build progress]
-<img src="YOUR_WIREFRAME_IMAGE_URL" width=600>
+![project gif](drawref_demo2.gif)
