@@ -15,12 +15,12 @@ A drawing app that supports ai generated variations (using openAI API) of your d
 ### App Evaluation
 
 [Evaluation of your app across the following attributes]
-- **Category:**
-- **Mobile:**
-- **Story:**
-- **Market:**
-- **Habit:**
-- **Scope:**
+- **Category:** Productivity
+- **Mobile:** Mobile is essential for the drawing experience as it is convenient for touch screen motions for drawing. 
+- **Story:** Creates a drawing aid/support for beginner and long time artists.
+- **Market:** Any people interested in drawing with new ideas. 
+- **Habit:** Users can notice the impact on their works and continue use of this app.
+- **Scope:** V1 allows for a few variations. V2 allows for different medium or style support in drawing pad. V3 allows for caption generation working with image generation to produce more accurate image variations that are similar to what the user is producing.
 
 ## Product Spec
 
@@ -57,17 +57,16 @@ n/a
 
 ## GitHub Project board
 
-[Add screenshot of your Project Board with three milestones visible in
-this section]
-<img src="YOUR_WIREFRAME_IMAGE_URL" width=600>
+<img src="milestones.png" width=600>
 
 ## Issue cards
 ![Issues on project board](issues1.png)
 
 ## Issues worked on this sprint
 
-- List the issues you completed this sprint
-- [Add giphy that shows current build progress for Milestone 2. Note: We will be looking for progression of work between Milestone 2 and 3. Make sure your giphys are not duplicated and clearly show the change from Sprint 1 to 2.]
+- Set up drawing in app
+- Connect API
+- ![Sprint 1 progress](drawref_demo1.gif)
 
 <br>
 
@@ -75,7 +74,7 @@ this section]
 
 ## GitHub Project board
 
-[Add screenshot of your Project Board with the updated status of issues for Milestone 3. Note that these should include the updated issues you worked on for this sprint and not be a duplicate of Milestone 2 Project board.] <img src="YOUR_WIREFRAME_IMAGE_URL" width=600>
+![Issues on project board](issues2.png)
 
 ## Completed user stories
 
