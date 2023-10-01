@@ -66,7 +66,7 @@ n/a
 
 - Set up drawing in app
 - Connect API
-- [Add giphy that shows current build progress for Milestone 2. Note: We will be looking for progression of work between Milestone 2 and 3. Make sure your giphys are not duplicated and clearly show the change from Sprint 1 to 2.]
+![Sprint 1 progress](drawref_demo1.gif)
 
 <br>
 
