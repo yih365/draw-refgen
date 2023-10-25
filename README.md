@@ -10,7 +10,7 @@
 
 ### Description
 
-A drawing app that supports ai generated variations (using openAI API) of your drawing for inspiration.
+A drawing app that supports ai generated variations (using [openAI API](https://openai.com/blog/openai-api)) of your drawing for inspiration.
 
 ### App Evaluation
 
@@ -49,7 +49,7 @@ n/a
 
 ## Wireframes
 
-[Add picture of your hand sketched wireframes in this section] <img src="YOUR_WIREFRAME_IMAGE_URL" width=600>
+<img src="drawgenWireframe.png" width=600>
 
 <br>
 
@@ -84,3 +84,4 @@ n/a
 - Allow user to click through multiple image variations
 
 ![project gif](drawref_demo2.gif)
+
